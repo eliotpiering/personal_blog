@@ -1,0 +1,27 @@
+/* This file is for your main application css. */
+
+@import "./trix.css";
+@import "./phoenix.css";
+
+
+nav .column {
+    margin: 1rem;
+}
+
+nav a {
+    margin: 0;
+    border-bottom: 3px solid black;
+    color: black;
+    font-size: 2rem;
+
+}
+
+.row-center {
+    align-items: center;
+  justify-content: center;
+    text-align: center;
+}
+
+trix-editor {
+    min-height: 50rem;
+}

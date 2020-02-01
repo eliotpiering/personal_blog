@@ -1,0 +1,12 @@
+<section class="row row-center">
+    <article class="column image-center">
+        <%= img_tag(Routes.static_path(@conn, "/images/eliot-piering.png")) %>
+    </article>
+</section>
+  <article class="column">
+      <h3>I'm a Software Developer with deep experience in Ruby and Javascript. I'm also a drummer and a mentor, but unfortunately don't get paid for either of those activities.</h3>
+      <p>I believe in creating high quality products. Using the right tools for the job. I love to learn new technologies but believe that often the best tech is battle hardened old tech.</p>
+  </article>
+  <article class="column">
+  </article>
+</section>

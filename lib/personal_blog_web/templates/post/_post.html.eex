@@ -1,0 +1,10 @@
+<h2><%= @post.title %></h2>
+
+<div class="trix-content">
+  <%= safe_content(@post.content) %>
+</div>
+
+<%= if signed_in?(@conn) do %>
+  <span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span>
+<% end %>
+<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>
