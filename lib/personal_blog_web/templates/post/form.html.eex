@@ -19,6 +19,10 @@
   <%= select_post_type f %>
   <%= error_tag f, :type %>
 
+  <%= label f, :published %>
+  <%= checkbox f, :published %>
+  <%= error_tag f, :published %>
+
   <div>
     <%= submit "Save" %>
   </div>

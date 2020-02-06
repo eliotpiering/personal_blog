@@ -2,26 +2,76 @@
 
 @import "./trix.css";
 @import "./phoenix.css";
+@import "./navigation.css";
 
-
-nav .column {
-    margin: 1rem;
-}
-
-nav a {
-    margin: 0;
-    border-bottom: 3px solid black;
-    color: black;
-    font-size: 2rem;
-
-}
 
 .row-center {
     align-items: center;
-  justify-content: center;
+    justify-content: center;
     text-align: center;
 }
 
 trix-editor {
     min-height: 50rem;
+
+}
+
+.underline-secondary-2x {
+    border-bottom: 4px solid #0202d6;
+}
+
+
+.underline-secondary {
+    border-bottom: 3px solid #0202d6;
+}
+
+
+.underline-primary-2x {
+    border-bottom: 4px solid black;
+}
+
+
+.underline-primary {
+    border-bottom: 3px solid black;
+}
+
+.truncate-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 30em;
+    position: relative;
+}
+
+.truncate-content:after {
+    content: "";
+    height: 2rem;
+    display: block;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    opacity: 0.8;
+    bottom: -0rem;
+}
+
+.read-more-link {
+    color: black;
+    font-size: 1.6rem;
+}
+
+#me-statement h2,
+#me-statement h3 {
+    display: inline;
+}
+
+#me-statement-2 h3 {
+    margin: 2px;
+    padding: 2px;
+}
+
+#me-statement-2 a {
+    color: black;
+}
+
+#me-statement-2 a:hover {
+    background-color: #f4f4f4;
 }

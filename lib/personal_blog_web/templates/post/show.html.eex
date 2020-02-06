@@ -1,3 +1,2 @@
-<h1><%=  @post.title %></h1>
-
 <%= render "_post.html", Map.put(assigns, :post, @post) %>
+<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>

@@ -1,12 +1,20 @@
+<section class="row-center">
+    <article class="column" id="me-statement">
+        <h2>I'm a Software Developer with deep experience in <u>Ruby</u> and <u>Javascript</u>. I'm a lifelong learner and a mentor.</h2>
+        <h3>I also play drums in bands for free.</h3>
+    </article>
+</section>
+
 <section class="row row-center">
     <article class="column image-center">
         <%= img_tag(Routes.static_path(@conn, "/images/eliot-piering.png")) %>
+        <div id="me-statement-2">
+            <h3>Currently for hire!</h3>
+            <%=  link("Download resume", to: Routes.static_path(@conn, "/images/resume.pdf"), target: "_blank", class: "underline-primary") %>
+        </div>
     </article>
 </section>
-  <article class="column">
-      <h3>I'm a Software Developer with deep experience in Ruby and Javascript. I'm also a drummer and a mentor, but unfortunately don't get paid for either of those activities.</h3>
-      <p>I believe in creating high quality products. Using the right tools for the job. I love to learn new technologies but believe that often the best tech is battle hardened old tech.</p>
-  </article>
-  <article class="column">
-  </article>
+<section class="row">
+    <article class="column">
+    </article>
 </section>

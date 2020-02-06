@@ -17,6 +17,11 @@
         }
 
         function setAttributes(attributes) {
+            var file = attachment.file
+            if (/^audio/.test(file.type)) {
+                attributes.content = '<audio controls><source src="' + attributes.url + '" type="' + file.type + '"></audio>';
+
+            }
             attachment.setAttributes(attributes)
         }
     }
@@ -28,6 +33,8 @@
 
         xhr.open("POST", CREATE_DELETE_PATH, true)
 
+
+
         xhr.upload.addEventListener("progress", function(event) {
             var progress = event.loaded / event.total * 100
             progressCallback(progress)
@@ -35,9 +42,10 @@
 
         xhr.addEventListener("load", function(event) {
             if (xhr.status == 204) {
+                var url = SHOW_PATH + key;
                 var attributes = {
-                    url: SHOW_PATH + key,
-                    href: SHOW_PATH + key + "?content-disposition=attachment"
+                    url: url,
+                    href: url + "?content-disposition=attachment"
                 }
                 successCallback(attributes)
             }

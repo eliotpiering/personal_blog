@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Eliot Piering's Blog</title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliot Piering's Site</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
     <%= csrf_meta_tag() %>
-  </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav class="row" role="navigation">
-            <div class="column column-60">
-                <div class="row">
-                    <div class="column">
-                        <h3>Eliot Piering</h3>
-                    </div>
-                </div>
+</head>
+
+<body>
+    <header class="header container-fluid underline-secondary-2x">
+        <section class="row">
+            <div id="nav-left" class="column column-40 column-offset-10">
+                <ul class="row logo">
+                    <li class="column"><%=  link("Eliot Piering", to: Routes.page_path(@conn, :home)) %></li>
+                </ul>
             </div>
-            <div class="column column-40">
-                <ul class="row">
+            <nav id="nav-right" class="column">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="row menu" role="navigation">
                     <li class="column"><%= link("Home", to: Routes.page_path(@conn, :home)) %></li>
-                    <li class="column"><%= link("Blog", to: Routes.post_path(@conn, :index)) %></li>
+                    <li class="column"><%= link("Projects", to: Routes.post_path(@conn, :projects)) %></li>
+                    <li class="column"><%= link("Writing", to: Routes.post_path(@conn, :index)) %></li>
+                    <li class="column"><%= link("Music", to: Routes.post_path(@conn, :music)) %></li>
                     <li class="column"><%= link("Contact", to: Routes.page_path(@conn, :contact)) %></li>
                     <%=  if signed_in?(@conn) do %>
-                      <li class="column"><%= link("Sign Out", to: Routes.session_path(@conn, :delete), method: :delete) %></li>
+                    <li class="column"><%= link("Sign Out", to: Routes.session_path(@conn, :delete), method: :delete) %></li>
                     <% end %>
                 </ul>
-        </nav>
-      </section>
+            </nav>
+        </section>
     </header>
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+        <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+</body>
+
 </html>

@@ -17,13 +17,17 @@ defmodule PersonalBlog.Main do
       [%Post{}, ...]
 
   """
-  def list_posts() do
-    list_posts(:blog_post)
-  end
 
-  def list_posts(t) do
+  def list_posts(t, include_unpublished) do
     int_type = Post.get_type!(t)
-    query = from post in Post, where: post.type == ^int_type
+
+    query =
+      if include_unpublished do
+        from post in Post, where: post.type == ^int_type
+      else
+        from post in Post, where: post.type == ^int_type and post.published == true
+      end
+
     Repo.all(query)
     # Repo.all(Post)
   end
@@ -58,6 +62,7 @@ defmodule PersonalBlog.Main do
   """
   def create_post() do
     %Post{published: false, title: "new empty post"}
+    # |> Post.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -189,6 +194,7 @@ defmodule PersonalBlog.Main do
 
   """
   def delete_upload(%Upload{} = upload) do
+    #TODO also delete the file
     Repo.delete(upload)
   end
 

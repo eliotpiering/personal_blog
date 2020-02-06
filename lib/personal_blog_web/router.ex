@@ -47,7 +47,7 @@ defmodule PersonalBlogWeb.Router do
     get "/contact", PageController, :contact
     get "/projects", PostController, :projects
     get "/music", PostController, :music
-    get "/post/:id", PostController, :show
+    get "/posts/:id", PostController, :show
 
     resources "/registrations", UserController, only: [:new, :create]
 

@@ -1,4 +1,12 @@
-<h2><%= @post.title %></h2>
+<h2 class="underline-primary"><%=  @post.title %></h2>
+
+<%= if signed_in?(@conn) do %>
+  <%= if @post.published do %>
+    <p class="alert alert-info" role="alert">Post is published</p>
+  <% else %>
+    <p class="alert alert-danger" role="alert">Post is unpublished</p>
+  <% end %>
+<% end %>
 
 <div class="trix-content">
   <%= safe_content(@post.content) %>
@@ -6,5 +14,5 @@
 
 <%= if signed_in?(@conn) do %>
   <span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span>
+  <span><%= link "Delete", to: Routes.post_path(@conn, :delete, @post), method: :delete %></span>
 <% end %>
-<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>

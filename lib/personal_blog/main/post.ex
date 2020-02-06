@@ -15,8 +15,8 @@ defmodule PersonalBlog.Main.Post do
 
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :content, :type])
-    |> validate_required([:title, :content, :type])
+    |> cast(attrs, [:title, :content, :type, :published])
+    |> validate_required([:title, :content, :type, :published])
   end
 
   def type_enum do

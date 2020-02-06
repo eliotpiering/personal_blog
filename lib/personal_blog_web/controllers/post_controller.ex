@@ -3,20 +3,21 @@ defmodule PersonalBlogWeb.PostController do
 
   alias PersonalBlog.Main
   alias PersonalBlog.Main.Post
+  alias PersonalBlogWeb.Helpers.Auth
 
   def index(conn, _params) do
-    posts = Main.list_posts(:blog_post)
-    render(conn, "index.html", posts: posts)
+    posts = Main.list_posts(:blog_post, Auth.signed_in?(conn))
+    render(conn, "index.html", posts: posts, title: "Writing")
   end
 
   def projects(conn, _params) do
-    posts = Main.list_posts(:project)
-    render(conn, "index.html", posts: posts)
+    posts = Main.list_posts(:project, Auth.signed_in?(conn))
+    render(conn, "index.html", posts: posts, title: "Projects")
   end
 
   def music(conn, _params) do
-    posts = Main.list_posts(:music)
-    render(conn, "index.html", posts: posts)
+    posts = Main.list_posts(:music, Auth.signed_in?(conn))
+    render(conn, "index.html", posts: posts, title: "Music")
   end
 
   def create(conn, _params) do
