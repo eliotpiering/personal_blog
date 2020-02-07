@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eliot Piering's Site</title>
+    <title>Eliot Piering's Blog</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
     <%= csrf_meta_tag() %>
 </head>
 
 <body>
-    <header class="header container-fluid underline-secondary-2x">
+    <header class="header container underline-secondary-2x">
         <section class="row">
             <div id="nav-left" class="column column-40 column-offset-10">
                 <ul class="row logo">

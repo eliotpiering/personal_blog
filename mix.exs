@@ -46,7 +46,9 @@ defmodule PersonalBlog.MixProject do
       {:html_sanitize_ex, "~> 1.3.0-rc3"},
       {:credo, "~> 0.5", only: [:dev, :test]},
       {:dogma, "~> 0.1", only: [:dev]},
-      {:argon2_elixir, "~> 2.2"}
+      {:argon2_elixir, "~> 2.2"},
+      {:distillery, "~> 2.1", warn_missing: false},
+      {:edeliver, ">= 1.6.0"},
     ]
   end
 

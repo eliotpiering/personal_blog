@@ -10,7 +10,7 @@
         <%= img_tag(Routes.static_path(@conn, "/images/eliot-piering.png")) %>
         <div id="me-statement-2">
             <h3>Currently for hire!</h3>
-            <%=  link("Download resume", to: Routes.static_path(@conn, "/images/resume.pdf"), target: "_blank", class: "underline-primary") %>
+            <%=  link("View Resume", to: Routes.static_path(@conn, "/images/resume.pdf"), target: "_blank", class: "underline-primary") %>
         </div>
     </article>
 </section>
