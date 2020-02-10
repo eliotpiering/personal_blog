@@ -5,7 +5,7 @@
 
 .header li a:hover,
 .header .menu-btn:hover {
-    background-color: #f4f4f4;
+    background-color: var(--secondary-color);
 }
 
 /* menu */
@@ -98,15 +98,15 @@ ul.menu {
 
 #nav-left a {
     margin: 0;
-    color: black;
+    color: var(--primary-color);
     font-size: 1.4rem;
 }
 
 #nav-right a {
     padding: 0.2rem;
     margin: 0;
-    border-bottom: 4px solid #0202d6;
-    color: black;
+    border-bottom: 4px solid var(--secondary-color);
+    color: var(--primary-color);
     font-size: 1.8rem;
 }
 
@@ -130,8 +130,8 @@ ul.menu {
 /* For everything but mobile */
 @media (min-width: 40rem) {
     #nav-right {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 60%;
+        max-width: 60%;
     }
 
     #nav-left {

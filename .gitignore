@@ -34,3 +34,4 @@ npm-debug.log
 /priv/static/
 .ignore
 /test/test_uploads/.deliver/releases/
+/.deliver/releases/

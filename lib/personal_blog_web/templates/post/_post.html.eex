@@ -1,4 +1,4 @@
-<h2 class="underline-primary"><%=  @post.title %></h2>
+<h2 class="underline-primary color-primary"><%=  @post.title %></h2>
 
 <%= if signed_in?(@conn) do %>
   <%= if @post.published do %>

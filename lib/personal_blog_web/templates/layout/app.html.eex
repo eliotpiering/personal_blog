@@ -8,12 +8,13 @@
     <title>Eliot Piering's Blog</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
     <%= csrf_meta_tag() %>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>" defer></script>
 </head>
 
 <body>
-    <header class="header container underline-secondary-2x">
+    <header class="header container underline-primary-2x">
         <section class="row">
-            <div id="nav-left" class="column column-40 column-offset-10">
+            <div id="nav-left" class="column column-30 column-offset-10">
                 <ul class="row logo">
                     <li class="column"><%=  link("Eliot Piering", to: Routes.page_path(@conn, :home)) %></li>
                 </ul>
@@ -27,19 +28,35 @@
                     <li class="column"><%= link("Writing", to: Routes.post_path(@conn, :index)) %></li>
                     <li class="column"><%= link("Music", to: Routes.post_path(@conn, :music)) %></li>
                     <li class="column"><%= link("Contact", to: Routes.page_path(@conn, :contact)) %></li>
+                    <li class="column"><%= link("Theme", to: "#", id: "toggle-color-theme") %></li>
                     <%=  if signed_in?(@conn) do %>
-                    <li class="column"><%= link("Sign Out", to: Routes.session_path(@conn, :delete), method: :delete) %></li>
+                      <li class="column"><%= link("Sign Out", to: Routes.session_path(@conn, :delete), method: :delete) %></li>
                     <% end %>
                 </ul>
             </nav>
         </section>
+        <div id="css-themeing">
+            <label>Primary:
+              <%=  color_input(nil, :primary, class: "theme-picker", name: "primary") %>
+            </label>
+            <label>Secondary:
+              <%=  color_input(nil, :secondary, class: "theme-picker", name: "secondary") %>
+            </label>
+            <label>Background:
+                <%=  color_input(nil, :background, class: "theme-picker", name: "background") %>
+            </label>
+            <label>Text:
+                <%=  color_input(nil, :background, class: "theme-picker", name: "text") %>
+            </label>
+            <p><%= link("Default", to: "#", id: "default-color-theme", class: "color-primary") %></p>
+            <p><%= link("Dark", to: "#", id: "dark-color-theme", class: "color-primary") %></p>
+        </div>
     </header>
     <main role="main" class="container">
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
         <%= render @view_module, @view_template, assigns %>
     </main>
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 </body>
 
 </html>

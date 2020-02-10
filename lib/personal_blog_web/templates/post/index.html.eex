@@ -1,15 +1,15 @@
-    <h1><%=  @title %></h1>
-    <%= if signed_in?(@conn) do %>
-    <span><%= link "New Post", method: :post, to: Routes.post_path(@conn, :create) %></span>
-    <% end %>
+<h1 class="color-primary"><%=  @title %></h1>
+<%= if signed_in?(@conn) do %>
+<span><%= link "New Post", method: :post, to: Routes.post_path(@conn, :create) %></span>
+<% end %>
 
 
-    <%= for post <- @posts do %>
-    <div class="truncate-content">
-        <%= render "_post.html", Map.put(assigns, :post, post) %>
-    </div>
-    <%=  link "Read More...", to: Routes.post_path(@conn, :show, post), class: "underline-primary read-more-link"  %>
-    <br/>
-    <br/>
+<%= for post <- @posts do %>
+<div class="truncate-content">
+    <%= render "_post.html", Map.put(assigns, :post, post) %>
+</div>
+<%=  link "Read More...", to: Routes.post_path(@conn, :show, post), class: "underline-primary read-more-link color-primary"  %>
+<br />
+<br />
 
-    <% end %>
+<% end %>

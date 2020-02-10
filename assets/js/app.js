@@ -11,8 +11,8 @@ import css from "../css/app.css"
 //
 import "phoenix_html"
 import "./trix_file_upload"
+import "./themeing"
+import TurboLinks from "turbolinks"
+import Trix from "trix"
 
-// Import local files
-//
-// Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
+TurboLinks.start()

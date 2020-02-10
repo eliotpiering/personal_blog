@@ -4,7 +4,7 @@ defmodule PersonalBlog.MixProject do
   def project do
     [
       app: :personal_blog,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -49,6 +49,7 @@ defmodule PersonalBlog.MixProject do
       {:argon2_elixir, "~> 2.2"},
       {:distillery, "~> 2.1", warn_missing: false},
       {:edeliver, ">= 1.6.0"},
+      {:turbolinks_plug, "~> 1.0"}
     ]
   end
 

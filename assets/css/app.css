@@ -3,12 +3,21 @@
 @import "./trix.css";
 @import "./phoenix.css";
 @import "./navigation.css";
+@import "./theme.css";
 
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
 
 .row-center {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.color-primary {
+    color: var(--primary-color);
 }
 
 trix-editor {
@@ -17,22 +26,22 @@ trix-editor {
 }
 
 .underline-secondary-2x {
-    border-bottom: 4px solid #0202d6;
+    border-bottom: 4px solid var(--secondary-color);
 }
 
 
 .underline-secondary {
-    border-bottom: 3px solid #0202d6;
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 
 .underline-primary-2x {
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid var(--primary-color);
 }
 
 
 .underline-primary {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .truncate-content {
@@ -48,13 +57,13 @@ trix-editor {
     display: block;
     width: 100%;
     position: absolute;
-    background-color: white;
+    background-color: var(--background-color);
     opacity: 0.8;
     bottom: -0rem;
 }
 
 .read-more-link {
-    color: black;
+    color: var(--primary-color);
     font-size: 1.6rem;
 }
 
@@ -69,9 +78,9 @@ trix-editor {
 }
 
 #me-statement-2 a {
-    color: black;
+    color: var(--primary-color);
 }
 
 #me-statement-2 a:hover {
-    background-color: #f4f4f4;
+    background-color: var(--secondary-color);
 }
