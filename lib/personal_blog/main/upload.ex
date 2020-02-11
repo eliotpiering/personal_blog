@@ -36,6 +36,10 @@ defmodule PersonalBlog.Main.Upload do
   end
 
   defp base_storage_dir do
-    if(Mix.env() == :test, do: "test/test_uploads/", else: "priv/static/uploads/")
+    if Mix.env() == :test do
+      Application.app_dir(:personal_blog, "test/test_uploads/")
+    else
+      Application.app_dir(:personal_blog, "priv/static/uploads/")
+    end
   end
 end
