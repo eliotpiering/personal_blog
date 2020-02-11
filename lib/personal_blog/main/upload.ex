@@ -37,9 +37,9 @@ defmodule PersonalBlog.Main.Upload do
 
   defp base_storage_dir do
     if Mix.env() == :test do
-      Application.app_dir(:personal_blog, "test/test_uploads/")
+      Path.join(File.cwd!(), "test/test_uploads/")
     else
-      Application.app_dir(:personal_blog, "priv/static/uploads/")
+      Path.join(File.cwd!(), "priv/static/uploads/")
     end
   end
 end

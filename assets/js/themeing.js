@@ -1,15 +1,22 @@
+// const defaultTheme = {
+//     primary: "#0b4f6c",
+//     secondary: "#9ee493",
+//     background: "#daf7dc",
+//     text: "#000000"
+// }
+
 const defaultTheme = {
-    primary: "#0b4f6c",
-    secondary: "#9ee493",
-    background: "#daf7dc",
-    text: "#000000"
+    primary: "#2274a5",
+    secondary: "#e7dfc6",
+    background: "#e9f1f7",
+    text: "#131b23"
 }
 
 const darkTheme = {
-    primary: "#ffffff",
-    secondary: "#9ee493",
-    background: "#000000",
-    text: "#ffffff"
+    primary: "#a89b9d",
+    secondary: "#575a4b",
+    background: "#2a2c24",
+    text: "#cfcfea"
 }
 
 //TODO this could happen on document load and not every turbolink reload?
