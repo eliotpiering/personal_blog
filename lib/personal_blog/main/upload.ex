@@ -17,7 +17,7 @@ defmodule PersonalBlog.Main.Upload do
   end
 
   def store_file!(upload_changeset, tmp_path) do
-    if(upload_changeset.valid? && File.exists?(tmp_path)) do
+    if upload_changeset.valid? && File.exists?(tmp_path) do
       new_path = Path.join(base_storage_dir, upload_changeset.changes[:title])
       File.cp!(tmp_path, new_path)
       File.rm(tmp_path)
@@ -36,15 +36,16 @@ defmodule PersonalBlog.Main.Upload do
   end
 
   defp base_storage_dir do
-    case Mix.env() do
-      :test ->
-        "test/test_uploads/"
+    "/uploads"
+    # case Mix.env() do
+    #   :test ->
+    #     "test/test_uploads/"
 
-      :prod ->
-        "/uploads"
+    #   :prod ->
+    #     "/uploads"
 
-      _ ->
-        "priv/static/uploads/"
-    end
+    #   _ ->
+    #     "priv/static/uploads/"
+    # end
   end
 end
