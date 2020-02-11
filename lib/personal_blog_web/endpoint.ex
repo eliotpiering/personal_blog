@@ -20,7 +20,7 @@ defmodule PersonalBlogWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :personal_blog,
+    from: {:personal_blog, "priv/static"},
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt uploads)
 
