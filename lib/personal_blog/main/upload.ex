@@ -1,7 +1,6 @@
 defmodule PersonalBlog.Main.Upload do
   use Ecto.Schema
   import Ecto.Changeset
-  @project_root File.cwd!()
 
   schema "uploads" do
     field :post_id, :integer
@@ -37,10 +36,15 @@ defmodule PersonalBlog.Main.Upload do
   end
 
   defp base_storage_dir do
-    if Mix.env() == :test do
-      Path.join(@project_root, "test/test_uploads/")
-    else
-      Path.join(@project_root, "priv/static/uploads/")
+    case Mix.env() do
+      :test ->
+        "test/test_uploads/"
+
+      :prod ->
+        "/uploads"
+
+      _ ->
+        "priv/static/uploads/"
     end
   end
 end
