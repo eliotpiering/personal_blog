@@ -41,6 +41,7 @@ environment :prod do
   set vm_args: "rel/vm.args"
 end
 
+
 # You may define one or more releases in this file.
 # If you have not set a default release, or selected one
 # when running `mix distillery.release`, the first release in the file
