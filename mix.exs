@@ -49,7 +49,8 @@ defmodule PersonalBlog.MixProject do
       {:argon2_elixir, "~> 2.2"},
       {:distillery, "~> 2.1", warn_missing: false},
       {:edeliver, ">= 1.6.0"},
-      {:turbolinks_plug, "~> 1.0"}
+      {:turbolinks_plug, "~> 1.0"},
+      {:timex, "~> 3.5"}
     ]
   end
 

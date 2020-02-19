@@ -12,6 +12,12 @@
   <%= safe_content(@post.content) %>
 </div>
 
+<div class="row">
+  <div class="column">
+  <label class="color-primary">Published <%= human_readable(@post.published_at) %></label>
+  </div>
+</div>
+
 <%= if signed_in?(@conn) do %>
   <span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span>
   <span><%= link "Delete", to: Routes.post_path(@conn, :delete, @post), method: :delete %></span>

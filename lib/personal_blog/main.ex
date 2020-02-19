@@ -18,14 +18,14 @@ defmodule PersonalBlog.Main do
 
   """
 
-  def list_posts(t, include_unpublished) do
+  def list_posts(t, include_unpublished \\ true) do
     int_type = Post.get_type!(t)
 
     query =
       if include_unpublished do
-        from post in Post, where: post.type == ^int_type
+        from post in Post, where: post.type == ^int_type, order_by: [desc: :published_at]
       else
-        from post in Post, where: post.type == ^int_type and post.published == true
+        from post in Post, where: post.type == ^int_type and post.published == true, order_by: [desc: :published_at]
       end
 
     Repo.all(query)

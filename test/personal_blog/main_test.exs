@@ -22,12 +22,6 @@ defmodule PersonalBlog.MainTest do
       post
     end
 
-    test "list_posts/0 returns all blog posts" do
-      post = post_fixture()
-      other_post = post_fixture(type: Post.get_type!(:music))
-      assert Main.list_posts() == [post]
-    end
-
     test "list_posts/1 returns by specified type posts" do
       project_post = post_fixture(type: Post.get_type!(:project))
       other_post = post_fixture(type: Post.get_type!(:music))

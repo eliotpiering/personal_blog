@@ -23,6 +23,11 @@
   <%= checkbox f, :published %>
   <%= error_tag f, :published %>
 
+  <%= label f, :published_at %>
+  <%= datetime_select f, :published_at %>
+  <%= error_tag f, :published_at %>
+
+
   <div>
     <%= submit "Save" %>
   </div>

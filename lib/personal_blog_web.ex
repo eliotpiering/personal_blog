@@ -42,6 +42,7 @@ defmodule PersonalBlogWeb do
       import PersonalBlogWeb.ErrorHelpers
       import PersonalBlogWeb.Gettext
       import PersonalBlogWeb.Helpers.Auth, only: [signed_in?: 1]
+      import PersonalBlogWeb.Helpers.Time, only: [human_readable: 1]
       alias PersonalBlogWeb.Router.Helpers, as: Routes
     end
   end

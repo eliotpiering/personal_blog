@@ -15,7 +15,7 @@ defmodule PersonalBlogWeb.UploadControllerTest do
     "file" => %Plug.Upload{
       content_type: "image/png",
       filename: "tree-winter.png",
-      path: "/tmp/plug-1580/multipart-1580408101-842862272655198-2"
+      path: "/tmp/test-tmp-file"
     },
     "post_id" => "42",
     "title" => "1580408101450-tree-winter.png"
@@ -29,7 +29,7 @@ defmodule PersonalBlogWeb.UploadControllerTest do
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
-    File.touch("/tmp/plug-1580/multipart-1580408101-842862272655198-2")
+    File.touch("/tmp/test-tmp-file")
   end
 
   describe "create upload" do
