@@ -9,6 +9,18 @@ defmodule PersonalBlogUmbrella.Mixfile do
   end
 
   defp deps do
-    []
+    [
+      {:distillery, "~> 2.1", warn_missing: false},
+      {:edeliver, ">= 1.6.0"}
+    ]
   end
+
+  def application do
+    [
+      mod: {PersonalBlogUmbrella.Application, []},
+      extra_applications: [:edeliver]
+    ]
+  end
+
+
 end
