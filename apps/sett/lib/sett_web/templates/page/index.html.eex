@@ -1,0 +1,16 @@
+<section class="row">
+    <%= form_for @conn, "/nickname", [as: :user, method: :put], fn f -> %>
+      <article class="column">
+          <label> NickName: </label>
+          <%= text_input f, :nickname, required: true %>
+      </article>
+
+      <article class="column">
+          <label> Color: </label>
+          <%= color_input f, :color, required: true %>
+      </article>
+
+      <%= submit "Submit" %>
+    <% end %>
+    </article>
+</section>
