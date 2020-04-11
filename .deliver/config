@@ -4,9 +4,9 @@ BUILD_HOST="personal_site"
 BUILD_USER="eliot"
 BUILD_AT="/home/eliot/Develop/personal_blog"
 
-PRODUCTION_HOSTS="personal_site" 
-PRODUCTION_USER="eliot" 
-DELIVER_TO="/home/eliot/personal_blog_release" 
+PRODUCTION_HOSTS="personal_site"
+PRODUCTION_USER="eliot"
+DELIVER_TO="/home/eliot/personal_blog_release"
 
 pre_erlang_clean_compile() {
   status "Running phoenix.digest" # log output prepended with "----->"
@@ -18,8 +18,8 @@ pre_erlang_clean_compile() {
     cd '$BUILD_AT' # enter the build directory on the build host (required)
     # prepare something
     mkdir -p priv/static # required by the phoenix.digest task
-    npm install --prefix ./assets
-    npm run deploy --prefix ./assets
+    # npm install --prefix ./assets
+    # npm run deploy --prefix ./assets
 
     # run your custom task
     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE
