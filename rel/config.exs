@@ -31,16 +31,15 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"/(j^~Q7uVOeyzPw<Do(GrV=K8SjZ3Fs_o4q5&z2KA1V/m[:I`8ydrb72x%wHf5L/"
+  set cookie: :"<`?FUMo]OQKK3[^K%>7<n5xJZXtsHnn{2yq=s(;*1o9:|4/L~dUF$nh;Taj~&FSi"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :";KJ.qC8X!1(8yud]cWy)J(^p&.Z^1D.h?(4Y9O~2@L}J0G_2b4ki7eA{udnt@NAy"
+  set cookie: :"CW|cQTA$=)XVa?5WQN_YCheW[I@!uX[4MAlSWv]r2%6^L<wL7^dT1vNv!=2o>nkn"
   set vm_args: "rel/vm.args"
 end
-
 
 # You may define one or more releases in this file.
 # If you have not set a default release, or selected one
@@ -48,9 +47,11 @@ end
 # will be used by default
 
 release :personal_blog do
-  set version: current_version(:personal_blog)
+  set version: "0.1.0"
   set applications: [
-    :runtime_tools
+    :runtime_tools,
+    personal_blog: :permanent,
+    sett: :permanent
   ]
 end
 
