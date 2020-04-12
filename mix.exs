@@ -5,6 +5,7 @@ defmodule PersonalBlogUmbrella.Mixfile do
     [apps_path: "apps",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     version: "1.0.1",
      deps: deps()]
   end
 
