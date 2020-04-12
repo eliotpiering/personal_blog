@@ -18,8 +18,12 @@ pre_erlang_clean_compile() {
     cd '$BUILD_AT' # enter the build directory on the build host (required)
     # prepare something
     mkdir -p priv/static # required by the phoenix.digest task
-    # npm install --prefix ./assets
-    # npm run deploy --prefix ./assets
+
+    npm install --prefix ./apps/personal_blog/assets
+    npm run deploy --prefix ./apps/personal_blog/assets
+
+    npm install --prefix ./apps/sett/assets
+    npm run deploy --prefix ./apps/sett/assets
 
     # run your custom task
     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE

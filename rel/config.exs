@@ -47,7 +47,7 @@ end
 # will be used by default
 
 release :personal_blog do
-  set version: "1.1.1"
+  set version: "1.1.2"
   set applications: [
     :runtime_tools,
     personal_blog: :permanent,
