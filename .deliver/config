@@ -1,6 +1,6 @@
 APP="personal_blog"
 
-BUILD_HOST="personal_site"
+BUILD_HOST="personal_site_2"
 BUILD_USER="eliot"
 BUILD_AT="/home/eliot/Develop/personal_blog"
 

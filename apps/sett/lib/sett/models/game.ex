@@ -72,7 +72,7 @@ defmodule Sett.Models.Game do
             | players: updated_players,
               current: current ++ new_cards,
               deck: updated_deck
-          } |> IO.inspect(label: "GAME STATE")
+          }
 
         :not_set ->
           updated_player = Player.remove_selected_cards(player)

@@ -6,7 +6,6 @@ defmodule SettWeb.Game do
   @event "update"
 
   def render(assigns) do
-    IO.inspect(assigns)
 
     ~L"""
     <% current_player = Map.get(@state.players, @current_player_id) %>
@@ -62,8 +61,6 @@ defmodule SettWeb.Game do
   end
 
   def terminate(reason, socket) do
-    IO.inspect(reason, label: "TERMINATE")
-
     Sett.Models.Game.remove_player(
       socket.assigns.state.game_pid,
       socket.assigns.current_player_id
@@ -93,7 +90,6 @@ defmodule SettWeb.Game do
   # PRIVATE
 
   defp notify_state_update() do
-    IO.inspect(self(), label: "NOTIFY UPDATE FROM")
     SettWeb.Endpoint.broadcast_from!(self(), @topic, @event, %{})
   end
 
@@ -103,7 +99,6 @@ defmodule SettWeb.Game do
   end
 
   defp refresh_state(socket) do
-    IO.inspect(self(), label: "REFRESH STATE FROM")
     state = Sett.Models.Game.get_state(socket.assigns.state.game_pid)
     socket |> assign(:state, state)
   end
