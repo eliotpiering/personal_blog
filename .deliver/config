@@ -4,7 +4,7 @@ BUILD_HOST="personal_site_2"
 BUILD_USER="eliot"
 BUILD_AT="/home/eliot/Develop/personal_blog"
 
-PRODUCTION_HOSTS="personal_site"
+PRODUCTION_HOSTS="personal_site_2"
 PRODUCTION_USER="eliot"
 DELIVER_TO="/home/eliot/personal_blog_release"
 
