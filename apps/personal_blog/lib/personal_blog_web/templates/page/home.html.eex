@@ -6,7 +6,7 @@
 </section>
 
 <section class="row row-center">
-    <article class="column image-center">
+    <article class="column image-center home-picture">
         <%= img_tag(Routes.static_path(@conn, "/images/eliot-piering.png")) %>
         <div id="me-statement-2">
             <h3>Currently for hire!</h3>

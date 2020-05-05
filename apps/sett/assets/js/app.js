@@ -27,4 +27,5 @@ let liveSocket = new LiveSocket("/live", Socket, {
         _csrf_token: csrfToken
     }
 });
+
 liveSocket.connect()

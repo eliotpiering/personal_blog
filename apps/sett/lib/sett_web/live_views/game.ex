@@ -6,10 +6,8 @@ defmodule SettWeb.Game do
   @event "update"
 
   def render(assigns) do
-
     ~L"""
     <% current_player = Map.get(@state.players, @current_player_id) %>
-    <h2> Hello: <%= current_player && current_player.nickname %></h2>
     <div class="container">
       <div class='row scoreboard'>
         <%= for {id, player} <- @state.players do %>

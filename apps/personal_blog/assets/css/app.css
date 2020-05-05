@@ -84,3 +84,11 @@ trix-editor {
 #me-statement-2 a:hover {
     background-color: var(--secondary-color);
 }
+
+
+@media (min-width: 768px) {
+  .home-picture img {
+    max-width: 60%
+  }
+
+}

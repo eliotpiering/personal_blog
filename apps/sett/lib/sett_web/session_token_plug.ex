@@ -16,16 +16,14 @@ defmodule SettWeb.SessionTokenPlug do
             DateTime.utc_now()
             |> to_string()
 
-          token = Phoenix.Token.sign(SettWeb.Endpoint, "user salt", timestamp)
-
-          conn
-          |> Plug.Conn.put_session(:user_token, token)
-
-          token
+          Phoenix.Token.sign(SettWeb.Endpoint, "user salt", timestamp)
 
         t ->
           t
       end
+
+    conn = conn
+    |> Plug.Conn.put_session(:user_token, token)
 
     case Plug.Conn.get_session(conn, :nickname) do
       nil ->
