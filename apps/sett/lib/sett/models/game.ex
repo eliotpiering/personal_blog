@@ -56,7 +56,7 @@ defmodule Sett.Models.Game do
       case Sett.check_set(selected_cards) do
         :sett ->
           current = remove_cards(game.current, selected_cards)
-          [:ok, updated_deck, new_cards] = Sett.deal(game.deck, 3)
+          [:ok, updated_deck, new_current_cards] = Sett.deal_until_set(game.deck, current, 2)
 
           updated_players =
             game.players
@@ -66,11 +66,10 @@ defmodule Sett.Models.Game do
             end)
             |> Enum.into(%{})
 
-
           %{
             game
             | players: updated_players,
-              current: current ++ new_cards,
+              current: new_current_cards,
               deck: updated_deck
           }
 

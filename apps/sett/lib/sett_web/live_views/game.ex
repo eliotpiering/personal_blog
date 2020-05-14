@@ -17,23 +17,80 @@ defmodule SettWeb.Game do
           </div>
         <% end %>
       </div>
+    </div>
+    <div id='game-board'>
       <%= for {card, i} <- Enum.with_index(@state.current) do %>
-        <%= if rem(i, 4) == 0, do: raw("<div class='row card-row'>") %>
-        <%= selected_border = selected_border(@state.players, card.id, current_player) %>
-        <div class="column card shade-<%= card.shade %>"
-             style="border: <%= selected_border %>"
-             phx-click="selected" phx-value-card-id="<%= card.id %>">
-             <%= for _ <- (0..card.count) do %>
-             <div class="color-<%= card.color %>">
-                <span class="shape-<%= card.shape %> "></span>
-              </div>
+        <% selected_border = selected_border(@state.players, card.id, current_player) %>
+        <div class="card"
+            style="border: <%= selected_border %>"
+            phx-click="selected" phx-value-card-id="<%= card.id %>">
+            <%= for _ <- (0..card.count) do %>
+              <%= icon_svgs(card.shape, card.shade, card.color) |> raw() %>
             <% end %>
-          </div>
-        <%= if rem(i, 4) == 3, do: raw("</div>") %>
-        <%= if rem(i, 4) == 3, do: raw("<hr/>") %>
+        </div>
       <% end %>
     </div>
     """
+  end
+
+  def icon_svgs(shape, shade, color) do
+    stroke = case color do
+               0 ->
+                 "green"
+               1 ->
+                 "blue"
+               2 ->
+                 "red"
+             end
+
+    fill = case shade do
+             0 ->
+               "none"
+             1 ->
+               "url(##{stroke}Hatch)"
+             2 ->
+               stroke
+           end
+
+    svg = case shape do
+            0 ->
+              """
+              <circle cx="25" cy="25" r="20" stroke="#{stroke}" stroke-width="2" fill="#{fill}"/>
+              """
+            1 ->
+              """
+              <rect width="40" height="40" x="5" y="5" stroke="#{stroke}" stroke-width="2" fill="#{fill}"/>
+              """
+            2 ->
+              """
+              <polygon points="5,5 25,45 45,5" stroke="#{stroke}" stroke-width="2" fill="#{fill}"/>
+              """
+
+          end
+  """
+  <svg width="50" height="50">
+    <pattern id="greenHatch" patternUnits="userSpaceOnUse" width="4" height="4" stroke="green">
+    <path d="M-1,1 l2,-2
+    M0,4 l4,-4
+    M3,5 l2,-2"
+    style="stroke-width:1" />
+    </pattern>
+    <pattern id="blueHatch" patternUnits="userSpaceOnUse" width="4" height="4" stroke="blue">
+    <path d="M-1,1 l2,-2
+    M0,4 l4,-4
+    M3,5 l2,-2"
+    style="stroke-width:1" />
+    </pattern>
+    <pattern id="redHatch" patternUnits="userSpaceOnUse" width="4" height="4" stroke="red">
+        <path d="M-1,1 l2,-2
+        M0,4 l4,-4
+        M3,5 l2,-2"
+          style="stroke-width:1" />
+    </pattern>
+    #{svg}
+  </svg>
+   """
+
   end
 
   def mount(
@@ -109,7 +166,7 @@ defmodule SettWeb.Game do
              MapSet.member?(player.selected, card_id)
            end) do
         nil ->
-          "1px solid black"
+          "3px solid black"
 
         {_, player} ->
           "5px solid #{player.color};"

@@ -30,7 +30,7 @@ defmodule Sett do
       end)
 
     # shuffle cards
-    # cards = Enum.shuffle(cards)
+    cards = Enum.shuffle(cards)
 
     # build deck
     Enum.reduce(cards, %Deck{cards: :queue.new()}, fn card, deck ->
@@ -46,6 +46,16 @@ defmodule Sett do
       end)
 
     [:ok, deck, cards]
+  end
+
+  def deal_until_set(deck, current_cards, n) do
+    if find_set(current_cards) do
+      [:ok, deck, current_cards]
+    else
+      [:ok, deck, new_cards] = deal(deck, n)
+      new_current_cards = new_cards ++ current_cards
+      deal_until_set(deck, new_current_cards, 2)
+    end
   end
 
   def check_set(cards) when length(cards) > 3 do

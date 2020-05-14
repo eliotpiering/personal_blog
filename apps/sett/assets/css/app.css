@@ -3,49 +3,64 @@
 @import "./phoenix.css";
 @import "../../../../deps/phoenix_live_view/assets/css/live_view.css";
 
-body {background-color: darkgrey}
+body {background-color: lightgray}
 
 
-.card-row {
-  min-height: 9rem;
+/* .card-row { */
+/*   min-height: 9rem; */
+/* } */
+
+#game-board {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 120.0rem;
+  margin: 0 auto;
 }
 
 .card {
-  border: 2px solid white;
   text-align: center;
   vertical-align: middle;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 2% 2%;
+  margin: 1% 4%;
   font-size: 4rem;
-}
-
-.color-0 {
-  color: red;
-}
-.color-1 {
-  color: green;
-}
-.color-0 {
-  color: blue;
-}
-
-
-.shade-0 {
-  background-color: lightgray;
-}
-.shade-1 {
-  background-color: darkgrey;
-}
-.shade-2 {
+  width: 150px;
   background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.shape-0::after {
-  content: "X"
-}
-.shape-1::after {
-  content: "O"
-}
-.shape-2::after {
-  content: "\\"
-}
+/* .color-0 { */
+/*   color: red; */
+/* } */
+/* .color-1 { */
+/*   color: green; */
+/* } */
+/* .color-0 { */
+/*   color: blue; */
+/* } */
+
+
+/* .shade-0 { */
+/*   background-color: lightgray; */
+/* } */
+/* .shade-1 { */
+/*   background-color: darkgrey; */
+/* } */
+/* .shade-2 { */
+/*   background-color: white; */
+/* } */
+
+/* .shape-0::after { */
+/*   content: "X" */
+/* } */
+/* .shape-1::after { */
+/*   content: "O" */
+/* } */
+/* .shape-2::after { */
+/*   content: "\\" */
+/* } */
